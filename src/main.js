@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const electron_1 = require("electron");
-const electron_2 = require("electron");
-let mainWindow = null;
+var electron_1 = require("electron");
+var electron_2 = require("electron");
+var mainWindow = null;
 function createWindow() {
     mainWindow = new electron_1.BrowserWindow({
         width: 800,
@@ -12,19 +12,18 @@ function createWindow() {
         },
     });
     mainWindow.loadFile("index.html");
-    mainWindow?.on("closed", () => {
+    mainWindow === null || mainWindow === void 0 ? void 0 : mainWindow.on("closed", function () {
         mainWindow = null;
     });
 }
 electron_2.app.on("ready", createWindow);
-electron_2.app.on("window-all-closed", () => {
+electron_2.app.on("window-all-closed", function () {
     if (process.platform !== "darwin") {
         electron_2.app.quit();
     }
 });
-electron_2.app.on("activate", () => {
+electron_2.app.on("activate", function () {
     if (mainWindow === null) {
         createWindow();
     }
 });
-//# sourceMappingURL=main.js.map

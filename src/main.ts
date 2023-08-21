@@ -1,6 +1,7 @@
-import { app, BrowserWindow } from "electron";
+import { BrowserWindow } from "electron";
+import { app } from "electron";
 
-let mainWindow: BrowserWindow | null;
+let mainWindow: BrowserWindow | null = null;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -13,7 +14,7 @@ function createWindow() {
 
   mainWindow.loadFile("index.html");
 
-  mainWindow.on("closed", () => {
+  mainWindow?.on("closed", () => {
     mainWindow = null;
   });
 }
